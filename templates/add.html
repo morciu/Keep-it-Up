@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+    {% block title %}
+        <h1 id="title">ADD NEW TASK</h1>
+    {% endblock %}
+    {% block main %}
+    <div class="form_box" id="add">
+        <form action="/add" method="post">
+
+
+            <label for="task">Task</label>
+            <input type="text" id="task" name="task" placeholder="Task" autocomplete="off">
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Description" rows="4" cols="50"></textarea>
+
+            <label for="start">Start</label>
+            <input type="date" id="start" name="start" placeholder="Start">
+
+            <label for="deadline">Deadline</label>
+            <input type="date" id="deadline" name="deadline" placeholder="Deadline">
+
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    {% endblock %}

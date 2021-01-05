@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+    {% block title %}
+        <h1 id="title">ADD NEW WARRANTY</h1>
+    {% endblock %}
+    {% block main %}
+    <div class="form_box" id="add">
+        <form action="/add_warranty" method="post">
+            <input type="text" id="product" name="product" placeholder="Product" autocomplete="off">
+
+            <input type="text" id="store" name="store" placeholder="Store">
+
+            <input type="text" id="link" name="link" placeholder="Store Link">
+
+            <input type="text" id="price" name="price" placeholder="Price">
+
+            <input type="text" id="receipt" name="receipt" placeholder="Receipt">
+
+            <label for="start">Warranty Start Date</label>
+            <input type="date" id="start" name="start" placeholder="start">
+
+            <label for="end">Warranty Expiration Date</label>
+            <input type="date" id="end" name="end" placeholder="End">
+
+            <input type="submit" value="submit">
+        </form>
+    </div>
+    {% endblock %}

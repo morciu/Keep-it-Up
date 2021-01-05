@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+    {% block title %}
+        <h1 id="pagetitle">WARRANTIES</h1>
+    {% endblock %}
+    {% block main %}
+    <table class="content-table">
+    {% if not warranties %}
+        <thead>
+            <tr>
+                <th>
+                    No warranties registered
+                </th>
+            </tr>
+        </thead>
+    {% else %}
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Store</th>
+                <th>Link</th>
+                <th>Price</th>
+                <th>Buy date</th>
+                <th>Warranty Exp</th>
+            </tr>
+        </thead>
+        {% for warranty in warranties %}
+        <tbody>
+            <tr>
+                <td style="font-weight: bold;">{{ warranty['product'] }}</td>
+                <td>{{ warranty['store'] }}</td>
+                <td><a href="{{ warranty['link'] }}">{{ warranty['link'] }}</a></td>
+                <td>{{ warranty['price'] }} {{ currency }}</td>
+                <td>{{ warranty['start'] }}</td>
+                <td>{{ warranty['end'] }}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    {% endif %}
+    </table>
+    {% endblock %}

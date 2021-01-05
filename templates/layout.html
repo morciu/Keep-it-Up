@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Keep It Up</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&family=Nerko+One&family=Roboto&family=Oswald:wght@600&display=swap" rel="stylesheet">
+        <script src="static/script.js"></script>
+    </head>
+
+    <body>
+        <main class="main">
+            <div class="sidenav">
+                <a href="/"><h1 id="title">Keep It Up</h1></a>
+                <a href="/today">Today</a>
+                <a href="/this_week">This week</a>
+                <a href="/this_month">This month</a>
+                <a href="/this_year">This year</a>
+                <a href="/warranties">Warranties</a>
+                <a href="/login">Login</a>
+                <a href="/logout">Log Out</a>
+                <a href="/register">Register</a>
+                <form class="form_control" action="/add">
+                    <button class="button" type="submit">Add New Task</button>
+                </form>
+                <form class="form_control" action="/add_warranty">
+                    <button class="button" type="submit">Add New Warranty</button>
+                </form>
+                <form class="form_control" action="/add_event">
+                    <button class="button" type="submit">Add New Event</button>
+                </form>
+                {% block user_input %}
+                {% endblock %}
+            </div>
+            {% block title %}
+            {% endblock %}
+            {% block main %}
+            {% endblock %}
+        </main>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+    {% block title %}
+        <h1 id="title">LOG IN</h1>
+    {% endblock %}
+    {% block main %}
+    <div class="form_box">
+        <form action="/login" method="post">
+            <input type="text" id="user" name="user" placeholder="Username" autocomplete="off">
+
+            <input type="password" id="password" name="password" placeholder="Password">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    {% endblock %}

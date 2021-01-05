@@ -1,0 +1,173 @@
+{% extends "layout.html" %}
+
+    {% block title %}
+        <h1 id="pagetitle">TODAY</h1>
+    {% endblock %}
+
+    {% block user_input %}
+    {% if user_input %}
+        <div class="user_rating">
+            <p style="display:block;">Money Earned: {{ user_input[0]['earned'] }} {{ currency }}</p>
+            <p style="display:block;">Money Spent: {{ user_input[0]['spent'] }} {{ currency }}</p>
+            <p style="display:block;">Balance: {{ user_input[0]['earned'] - user_input[0]['spent'] }} {{ currency }}</p>
+            <p style="display:block;">Your day rating is: {{ user_input[0]['rating'] }}/100</p>
+        </div>
+    {% endif %}
+    {% endblock %}
+
+    {% block main %}
+    <input style="margin-left:200px;" type="checkbox" id="filter" onClick="filter('row_done');">
+    <label for"filter">Show Completed Tasks</label>
+    <table class="content-table">
+        {% if not rows %}
+            <thead>
+                <tr>
+                    <th>
+                        Nothing to do!
+                    </th>
+                </tr>
+            </thead>
+        {% else %}
+            <thead>
+                <tr>
+                    <th>Nr.</th>
+                    <th>Task Name</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th>Start</th>
+                    <th>Deadline</th>
+                    <th>Completed</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for row in rows %}
+                {% if row['completed'] == 1 %}
+                <tr class="row_done" style="display:none;">
+                {% else %}
+                <tr class="row_not_done" style="display:;">
+                {% endif %}
+                    <td style="font-weight: bold;">{{ loop.index }}</td>
+                    <td style="font-weight: bold;">{{ row['name'] }}</td>
+                    <td>{{ row['description'] }}</td>
+                    <td><input class="expand" type="image" style="width:15px; height:15px;" src="static/expand.png" onclick="expandForm({{ loop.index }});"></td>
+                    <div class="expand-pop {{ loop.index }}">
+                        <h1>{{ row['name'] }}</h1>
+                        <p>{{ row['description'] }}</p>
+                        <button type="button" class="cancel" onclick="closeForm({{ loop.index }});">Close</button>
+                    </div>
+                    <td>{{ row['start'] }}</td>
+                    <td>{{ row['deadline'] }}</td>
+                    <td>
+                        {% if row['completed'] == 1 %}
+                        <form action="/today" method="post">
+                            <button type="submit" name="{{ loop.index }}" value="y" class="check_button_yes" id="'{{ loop.index }}'" onClick="check('{{ loop.index }}')">Done</button>
+                        </form>
+                        {% else %}
+                        <form action="/today" method="post">
+                            <button type="submit" name="{{ loop.index }}" value="n" class="check_button_no" id="{{ loop.index }}'" onClick="check('{{ loop.index }}')">Not Done</button>
+                        </form>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form action="/today" method="post">
+                            <button type="submit" class="delete" id="{{ loop.index }}" name="{{ loop.index }}" value="keep" onClick="remove('{{ loop.index }}')"><img src="static/delete.png" height="35"/></button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        {% endif %}
+    </table>
+
+    <table class="content-table">
+        {% if not events %}
+            <thead>
+                <tr>
+                    <th>
+                        No events!
+                    </th>
+                </tr>
+            </thead>
+        {% else %}
+            <thead>
+                <tr>
+                    <th>Nr.</th>
+                    <th>Event</th>
+                    <th>Description</th>
+                    <th></th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            {% for event in events %}
+            <tbody>
+                <tr>
+                    <td style="font-weight: bold;">{{ loop.index }}</td>
+                    <td style="font-weight: bold;">{{ event['event'] }}</td>
+                    <td>{{ event['description'] }}</td>
+                    <td><input class="expand" type="image" style="width:15px; height:15px;" src="static/expand.png" onclick="expandForm(-{{ loop.index }});"></td>
+                    <div class="expand-pop -{{ loop.index }}">
+                        <h1>{{ event['event'] }}</h1>
+                        <p>{{ event['description'] }}</p>
+                        <button type="button" class="cancel" onclick="closeForm(-{{ loop.index }});">Close</button>
+                    </div>
+                    <td>{{ event['date'] }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        {% endif %}
+    </table>
+
+    <table class="content-table">
+    {% if not warranties %}
+        <thead>
+            <tr>
+                <th>
+                    No warranties expiring today
+                </th>
+            </tr>
+        </thead>
+    {% else %}
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Store</th>
+                <th>Link</th>
+                <th>Price</th>
+                <th>Buy date</th>
+                <th>Warranty Exp</th>
+            </tr>
+        </thead>
+        {% for warranty in warranties %}
+        <tbody>
+            <tr>
+                <td style="font-weight: bold;">{{ warranty['product'] }}</td>
+                <td>{{ warranty['store'] }}</td>
+                <td><a href="http://{{ warranty['link'] }}">{{ warranty['link'] }}</a></td>
+                <td>{{ warranty['price'] }} {{ currency }}</td>
+                <td>{{ warranty['start'] }}</td>
+                <td>{{ warranty['end'] }}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    {% endif %}
+    </table>
+
+    <div class="daily_form">
+        <form class="side_by_side" action="/today" method="post">
+            <label for="task">Money Earned ({{ currency }})</label>
+            <input type="number" step="0.01" id="earned" name="earned" placeholder="Earned">
+
+            <label for="description">Money Spent ({{ currency }})</label>
+            <input type="number" step="0.01" id="spent" name="spent" placeholder="Spent">
+
+            <label for="rating">Rate Your Day</label>
+            <input style="background:red;" id="rating" name="rating" type="range" min="1" max="100" value="50" onchange="updateRangeInput(value);">
+            <p id="value"></p>
+
+            <input style="width:90%;" type="submit" value="submit">
+        </form>
+
+
+    </div>
+    {% endblock %}

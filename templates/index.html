@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+    {% block title %}
+        <h1 id="pagetitle">HOME</h1>
+    {% endblock %}
+    {% block main %}
+    <div class="form_box">
+        {% if session.user_id %}
+            <h3>Welcome,</h3>
+            <h4>I created this website as my final project for CS50x 2020.</h4>
+            <h4>It's main purpose is to act as a "To-Do List" with a few extra functionalities.</h4>
+            <h4>You can use it to track your tasks and mark them as being complete or not.</h4>
+            <h4>You can use it to keep track of the events you register.</h4>
+            <h4>You can use it to keep track of warranties for things you buy.(I've always had trouble with this in real life)</h4>
+            <h4>At the bottom of the "Today" section there is a form where you can register the total money you spent/earned at the end of the day, there is also a little slider where you can rate your day from 0 to 100. </h4>
+            <h4>This is my first time building a website and a working backend server, I didn't really know what I was doing when I started but with the help of this course and a bunch of googling I managed to make a working version of what I set out to do initially.</h4>
+            <h4>I plan on using this little program for myself and I plan to keep adding features and fixing bugs in the future; everyone is welcome to use it too.</h4>
+            <h4>Thanks for checking it out!</h4>
+            <h3>Caution:</h3>
+            <h4>Please keep in mind that this is a beginner project and, while I tried to use some encryption protocols on the password, please try not to use any of the real passwords you use on other sites as I cannot guarantee their security.</h4>
+        {% else %}
+            <h3>Please Log in</h3>
+        {% endif %}
+    </div>
+    {% endblock %}

@@ -1,0 +1,405 @@
+body
+{
+    background-color: #6494aa;
+    margin-left: 200px;
+}
+
+#title
+{
+    font-family: 'Bangers', cursive;
+    color: #6494aa;
+    font-size: 200%;
+    text-align: center;
+}
+
+#pagetitle
+{
+    font-family: 'Bangers', cursive;
+    color: #151515;
+    font-size: 200%;
+    text-align: center;
+}
+
+/* Sidebar Menu */
+.sidenav
+{
+    height: 100%; /* Full Sidebar */
+    width: 220px;
+    position: fixed; /* Don't scroll */
+    background-color: #151515;
+    top: 0;
+    left: 0;
+    padding-top: 1px;
+}
+
+.sidenav a {
+  padding: 5px 5px 5px 5px;
+  text-decoration: none;
+  font-family: 'Nerko One', cursive;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* react to cursor hover */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.content-table
+{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    min-width: 400px;
+    max-width: 60%;
+    margin-left: 200px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr
+{
+    background-color: #90A959;
+    color: #151515;
+    font-family: 'Oswald', sans-serif;
+    text-align: left;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td
+{
+    padding: 12px 15px;
+}
+
+td
+{
+    max-width: 500px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+content-table td #text
+{
+    text-overflow: ellipsis;
+}
+
+.content-table tbody tr
+{
+    border-bottom: 2px solid #E9B872;
+}
+
+.delete
+{
+    background-color: #6494aa;
+    border:none;
+    outline: none;
+}
+
+::placeholder
+{
+   color: gray;
+}
+
+.form_box
+{
+    font-family: 'Oswald', sans-serif;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 10px;
+    border: 2px solid #A63D40;
+    background-color: #E9B872;
+    padding: 40px 30px 30px 30px;
+    top: 25%;
+    left: 35%;
+    margin: auto;
+    width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.daily_form
+{
+    position: absolute;
+    border-radius: 50px;
+    background-color: #6494aa;
+    padding: 10px;
+    bottom: 10px;
+    margin-left: 200px;
+}
+
+.side_by_side p
+{
+    font-family: 'Roboto', sans-serif;
+    display: contents;
+}
+
+.side_by_side label
+{
+    font-family: 'Roboto', sans-serif;
+    display: inline-block;
+}
+
+
+.side_by_side input[type=number]
+{
+    width: 10%;
+}
+
+.side_by_side #rating
+{
+    background: #6494aa;
+}
+
+.button_container
+{
+    background-color: rgb(83, 136, 172);
+}
+
+.button
+{
+    border-radius: 4px;
+    background-color: #90A959;
+    border: none;
+    color: #151515;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Bangers', cursive;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.cancel
+{
+    max-width: 100px;
+    border-radius: 4px;
+    background-color: #90A959;
+    border: none;
+    color: #151515;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Bangers', cursive;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.check_button_yes
+{
+    border-radius: 4px;
+    color: #151515;
+    background-color: #ADAD42;
+    border: none;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.check_button_no
+{
+    border-radius: 4px;
+    background-color: #A63D40;
+    border: none;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.form_control input
+{
+    width: 100%;
+    border: 2px solid;
+    border-radius: 4px;
+    background-color: rgb(100, 136, 172);
+    outline: none;
+    height: 25px;
+}
+
+form textarea
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.expand-pop
+{
+    background-color: #D7FDF0;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    z-index: 99;
+    display: none;
+    margin: auto;
+    height: fit-content;
+    max-height: 400px;
+    width: 30%;
+    padding: 0px;
+    overflow: auto;
+
+}
+
+.expand-pop h1
+{
+    background-color: #A63D40;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-radius: 5px 5px 0 0;
+    padding: 10px;
+}
+
+.expand-pop p
+{
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    padding: 35px;
+}
+
+.expand-pop button
+{
+    position: relative;
+    bottom: 10px;
+    width: 100%;
+}
+
+input[type=text], select, input[type=password], input[type=date]
+{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]
+{
+    width: 100%;
+    background-color: #90A959;
+    color: #151515;
+    font-family: 'Bangers', cursive;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover
+{
+    background-color: #45a049;
+}
+
+div
+{
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.form_control p
+{
+    font-family: Lucida Console, sans-serif;
+}
+
+#tasks
+{
+    font-family: 'Nerko One', cursive;
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 70px;
+
+}
+
+#tasks td, #tasks th
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tasks tr:nth-child(even)
+{
+    background-color: rgb(122, 172, 207);
+}
+
+#tasks tr:hover
+{
+    background-color:#ddd;
+}
+
+#tasks th
+{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #79B090;
+    color: white;
+}
+
+#warranties
+{
+    font-family: 'Nerko One', cursive;
+    border-collapse: collapse;
+    width: 80%;
+    margin-left: 70px;
+
+}
+
+#warranties td, #warranties th
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#warranties tr:nth-child(even)
+{
+    background-color: rgb(122, 172, 207);
+}
+
+#warranties tr:hover
+{
+    background-color:#ddd;
+}
+
+#warranties th
+{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #79B090;
+    color: white;
+}
+
+.user_rating
+{
+    border: 2px solid #A63D40;
+    width: 180px;
+    font-family: 'Bangers', cursive;
+    background-color: #E9B872;
+    position: fixed;
+    bottom: 10px;
+}
